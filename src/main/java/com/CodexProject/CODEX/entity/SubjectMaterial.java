@@ -16,20 +16,17 @@ import org.hibernate.validator.constraints.URL;
 public class SubjectMaterial {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
     @URL
     private String url;
 
-    @OneToOne(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            optional = false
-    )
+    @OneToOne
     @JoinColumn(
-            name = "course_id",
-            referencedColumnName = "id"
+            name = "subject_id",
+            nullable = false
     )
     private Subject subject;
 }
