@@ -1,21 +1,21 @@
 package com.CodexProject.CODEX.Dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class SubjectDto {
+public class SemesterDto {
 
-    private String subjectName;
 
-    private Long semesterId;
+    private int semester;
 
-    private SubjectMaterialDto subjectMaterial;
 
+    private List<SubjectDto> subjects;
 }

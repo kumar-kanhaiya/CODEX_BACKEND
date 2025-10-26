@@ -1,6 +1,5 @@
 package com.CodexProject.CODEX.Dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,12 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class SubjectDto {
+public class MinimalResponseDto {
 
     private String subjectName;
 
-    private Long semesterId;
-
-    private SubjectMaterialDto subjectMaterial;
-
+    private String materialUrl;
 }
