@@ -7,15 +7,13 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class SemesterDto {
 
+    private int semester ;
 
-    private int semester;
-
-
-    private List<SubjectDto> subjects;
+    private List<SubjectDto> subjectDtoList;
 }

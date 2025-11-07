@@ -1,16 +1,15 @@
 package com.CodexProject.CODEX.entity;
 
-
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
+import org.hibernate.validator.constraints.URL;
+import java.util.List;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Subject {
 
@@ -18,16 +17,18 @@ public class Subject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String subjectName;
+    @NotNull
+    private String title;
+
+    @URL
+    private String img;
+
+    private String about;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "semester_id", nullable = false)
     private Semester semester;
 
-    @OneToOne(mappedBy = "subject",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private SubjectMaterial subjectMaterial;
-
+    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Unit> units;
 }

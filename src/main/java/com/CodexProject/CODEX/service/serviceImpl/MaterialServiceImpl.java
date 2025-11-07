@@ -1,15 +1,11 @@
 package com.CodexProject.CODEX.service.serviceImpl;
 
-import com.CodexProject.CODEX.Dto.MinimalResponseDto;
-import com.CodexProject.CODEX.entity.Semester;
 import com.CodexProject.CODEX.repository.SemesterRepo;
 import com.CodexProject.CODEX.repository.SubjectMaterialRepository;
 import com.CodexProject.CODEX.repository.SubjectRepository;
 import com.CodexProject.CODEX.service.MaterialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class MaterialServiceImpl implements MaterialService {
@@ -24,16 +20,18 @@ public class MaterialServiceImpl implements MaterialService {
     private SubjectMaterialRepository subjectMaterialRepository;
 
 
-    @Override
-    public List<MinimalResponseDto> getSubjectMaterialBySemester(Long id) {
-        Semester semester = semesterRepo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Please enter a valid id"));
+//    @Override
+//    public List<MinimalResponseDto> getSubjectMaterialBySemester(Long id) {
+//        Semester semester = semesterRepo.findById(id)
+//                .orElseThrow(() -> new RuntimeException("Please enter a valid id"));
+//
+//        return semester.getSubject().stream().map(subject ->
+//                MinimalResponseDto
+//                        .builder()
+//                        .subjectName(subject.getTitle())
+//                        .materialUrl(subject.getSubjectMaterial() != null ? subject.getSubjectMaterial().getUrl() : null)
+//                        .build()).toList();
+//    }
 
-        return semester.getSubject().stream().map(subject ->
-                MinimalResponseDto
-                        .builder()
-                        .subjectName(subject.getSubjectName())
-                        .materialUrl(subject.getSubjectMaterial() != null ? subject.getSubjectMaterial().getUrl() : null)
-                        .build()).toList();
-    }
+
 }
