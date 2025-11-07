@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SemesterRepo extends JpaRepository<Semester , Long> {
+    Semester findBySemester(int semester);
 }
