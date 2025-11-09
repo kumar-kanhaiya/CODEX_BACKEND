@@ -1,9 +1,7 @@
 package com.CodexProject.CODEX.Service;
 
-import com.CodexProject.CODEX.dto.RequireData;
-
-import java.util.List;
+import com.CodexProject.CODEX.dto.SubjectResponseDto;
 
 public interface MaterialService {
-    public List<RequireData> getRequireData(Long semesterId, String subjectName);
+    public SubjectResponseDto getSubjectMaterial(Long semesterId, String subjectName);
 }

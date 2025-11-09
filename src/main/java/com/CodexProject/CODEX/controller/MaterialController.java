@@ -1,26 +1,26 @@
 package com.CodexProject.CODEX.controller;
 
 import com.CodexProject.CODEX.Service.MaterialService;
-import com.CodexProject.CODEX.dto.RequireData;
+import com.CodexProject.CODEX.dto.SubjectResponseDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-@RestController("notes")
+@RestController
+@RequestMapping("/api/materials")
+@RequiredArgsConstructor
 public class MaterialController {
 
     @Autowired
     private MaterialService materialService;
 
-    @GetMapping("/semester/{semsterid}/subject/{subjectname}")
-    private List<RequireData> getRequireData(@RequestParam Long semesterId
-            , String subjectName){
-        return materialService.getRequireData(semesterId , subjectName);
+    @GetMapping("/{semesterId}/{subjectName}")
+    public ResponseEntity<SubjectResponseDto> getMaterials(
+            @PathVariable Long semesterId,
+            @PathVariable String subjectName) {
 
+        return ResponseEntity.ok(materialService.getSubjectMaterial(semesterId, subjectName));
     }
 
 
