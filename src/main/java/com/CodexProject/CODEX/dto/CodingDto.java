@@ -5,18 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
-@Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class CodingResponseDto {
+@Builder
+public class CodingDto {
 
-    private String CodingName;
+    private String codingName;
 
     private String about;
 
-    private List<PartsDto> partsDtoList;
-
+    private String imageUrl;
 }

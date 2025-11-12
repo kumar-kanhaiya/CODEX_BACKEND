@@ -15,4 +15,6 @@ public class PartsDto {
     private String playlistName;
 
     private String playlistUrl;
+
+    private String imageUrl;
 }

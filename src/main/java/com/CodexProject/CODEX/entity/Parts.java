@@ -14,16 +14,15 @@ import lombok.NoArgsConstructor;
 public class Parts {
 
     @Id
-    @SequenceGenerator(name = "id_seq"
-            , sequenceName = "id_seq"
-            , allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE
-            , generator = "id_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
 
     private String playlistName;
 
     private String playlistUrl;
+
+    private String imageUrl;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Coding_Material" , nullable = false)

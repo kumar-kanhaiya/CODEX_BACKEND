@@ -16,14 +16,14 @@ import java.util.List;
 public class Coding {
 
     @Id
-    @SequenceGenerator(name = "id_seq"
-            , sequenceName = "id_seq"
-            , allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE
-            , generator = "id_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
 
-    private String CodingName;
+    private String name;
+
+    private String about;
+
+    private String imageUrl;
 
     @OneToMany(mappedBy = "coding")
     private List<Parts> parts;
